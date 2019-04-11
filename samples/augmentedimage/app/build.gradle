@@ -62,4 +62,4 @@ sceneform.asset('sampledata/Dragon_fbx.fbx',
         'default',
         'sampledata/Dragon_fbx.sfa',
         'src/main/assets/Dragon_fbx',
-        ['sampledata/Dragon_Baked_Actions_fbx_6.1_ASCII.fbx'])
+        ['sampledata/Dragon_Baked_Actions_fbx_6.1_ASCII.fbx', 'sampledata/Dragon_Baked_Actions_fbx_7.4_binary.fbx'])

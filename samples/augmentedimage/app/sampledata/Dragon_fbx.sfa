@@ -6,6 +6,26 @@
     {
       clips: [
         {
+          name: 'Default Take',
+        },
+        {
+          name: 'Fly_New',
+        },
+        {
+          name: 'Idel_New',
+        },
+        {
+          name: 'Run_New',
+        },
+        {
+          name: 'Walk_New',
+        },
+      ],
+      path: 'sampledata/Dragon_Baked_Actions_fbx_6.1_ASCII.fbx',
+    },
+    {
+      clips: [
+        {
           name: 'Armature|Fly_New',
         },
         {
@@ -149,7 +169,7 @@
     file: 'sampledata/Dragon_fbx.fbx',
     name: 'Dragon_fbx',
     recenter: 'root',
-    scale: 0.005492,
+    scale: 0.003992,
   },
   samplers: [
     {
