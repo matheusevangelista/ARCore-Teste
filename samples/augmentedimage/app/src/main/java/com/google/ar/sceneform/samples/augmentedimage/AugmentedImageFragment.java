@@ -45,10 +45,10 @@ public class AugmentedImageFragment extends ArFragment {
   // This is the name of the image in the sample database.  A copy of the image is in the assets
   // directory.  Opening this image on your computer is a good quick way to test the augmented image
   // matching.
-  private static final String DEFAULT_IMAGE_NAME = "default.jpg";
+  private static final String DEFAULT_IMAGE_NAME = "tom.jpg";
 
   // This is a pre-created database containing the sample image.
-  private static final String SAMPLE_IMAGE_DATABASE = "sample_database.imgdb";
+  private static final String SAMPLE_IMAGE_DATABASE = "images.imgdb";
 
   // Augmented image configuration and rendering.
   // Load a single image (true) or a pre-generated image database (false).
@@ -100,6 +100,10 @@ public class AugmentedImageFragment extends ArFragment {
       SnackbarHelper.getInstance()
           .showError(getActivity(), "Could not setup augmented image database");
     }
+
+
+    config.setFocusMode(Config.FocusMode.AUTO);
+
     return config;
   }
 
