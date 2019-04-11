@@ -94,7 +94,7 @@ public class AugmentedImageActivity extends AppCompatActivity {
           // Create a new anchor for newly found images.
           if (!augmentedImageMap.containsKey(augmentedImage)) {
 
-            AugmentedImageNode node = new AugmentedImageNode(this, "dragon.sfb");
+            AugmentedImageNode node = new AugmentedImageNode(this, "Dragon_fbx.sfb");
 
 //            AugmentedImageNodeBackup node = new AugmentedImageNodeBackup(this);
 
