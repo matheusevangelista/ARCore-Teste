@@ -79,6 +79,7 @@ public class AugmentedImageActivity extends AppCompatActivity {
     Collection<AugmentedImage> updatedAugmentedImages = frame.getUpdatedTrackables(AugmentedImage.class);
 
     for (AugmentedImage augmentedImage : updatedAugmentedImages) {
+
       switch (augmentedImage.getTrackingState()) {
         case PAUSED:
           // When an image is in PAUSED state, but the camera is not PAUSED, it has been detected,
@@ -95,14 +96,17 @@ public class AugmentedImageActivity extends AppCompatActivity {
           // Create a new anchor for newly found images.
           if (!augmentedImageMap.containsKey(augmentedImage)) {
 
-            AugmentedImageNode node = new AugmentedImageNode(this, "earth.sfb");
+            String filename = "";
 
-//            AugmentedImageNodeBackup node = new AugmentedImageNodeBackup(this);
+            if(augmentedImage.getName().equals("tom.jpg")){
+              filename = "earth.sfb";
+            }else if(augmentedImage.getName().equals("cartoon-mill-on-island-low-poly.jpg")){
+              filename = "low-poly-mill.sfb";
+            }
 
-
+            AugmentedImageNode node = new AugmentedImageNode(this, filename);
 
             node.setImage(augmentedImage);
-
             augmentedImageMap.put(augmentedImage, node);
             arFragment.getArSceneView().getScene().addChild(node);
           }
@@ -110,6 +114,7 @@ public class AugmentedImageActivity extends AppCompatActivity {
 
         case STOPPED:
           augmentedImageMap.remove(augmentedImage);
+          fitToScanView.setVisibility(View.VISIBLE);
           break;
       }
     }

@@ -131,9 +131,18 @@ public class AugmentedImageFragment extends ArFragment {
         return false;
       }
 
+
+
+      // index 1
+      Bitmap augmentedImageBitmap2 = loadAugmentedImageBitmap(assetManager, "cartoon-mill-on-island-low-poly.jpg");
+      if (augmentedImageBitmap2 == null) {
+        return false;
+      }
+
+
       augmentedImageDatabase = new AugmentedImageDatabase(session);
       augmentedImageDatabase.addImage(DEFAULT_IMAGE_NAME, augmentedImageBitmapTom);
-
+      augmentedImageDatabase.addImage("cartoon-mill-on-island-low-poly.jpg", augmentedImageBitmap2);
 
 
 

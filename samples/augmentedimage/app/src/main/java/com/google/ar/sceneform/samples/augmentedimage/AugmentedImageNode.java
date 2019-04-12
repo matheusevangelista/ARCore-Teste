@@ -23,12 +23,10 @@ public class AugmentedImageNode extends AnchorNode {
     private static CompletableFuture<ModelRenderable> modelFuture;
 
     public AugmentedImageNode(Context context, String filename) {
-        // Upon construction, start loading the modelFuture
-        if (modelFuture == null) {
-            modelFuture = ModelRenderable.builder().setRegistryId("modelFuture")
-                    .setSource(context, Uri.parse(filename))
-                    .build();
-        }
+
+        modelFuture = ModelRenderable.builder().setSource(context, Uri.parse(filename))
+                .build();
+
     }
 
     /**
