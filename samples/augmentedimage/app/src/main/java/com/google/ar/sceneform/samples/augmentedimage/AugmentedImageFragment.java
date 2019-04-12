@@ -52,7 +52,7 @@ public class AugmentedImageFragment extends ArFragment {
 
   // Augmented image configuration and rendering.
   // Load a single image (true) or a pre-generated image database (false).
-  private static final boolean USE_SINGLE_IMAGE = false;
+  private static final boolean USE_SINGLE_IMAGE = true;
 
   // Do a runtime check for the OpenGL level available at runtime to avoid Sceneform crashing the
   // application.
@@ -123,13 +123,21 @@ public class AugmentedImageFragment extends ArFragment {
     // * shorter setup time
     // * doesn't require images to be packaged in apk.
     if (USE_SINGLE_IMAGE) {
-      Bitmap augmentedImageBitmap = loadAugmentedImageBitmap(assetManager);
-      if (augmentedImageBitmap == null) {
+
+
+      // index 0
+      Bitmap augmentedImageBitmapTom = loadAugmentedImageBitmap(assetManager, DEFAULT_IMAGE_NAME);
+      if (augmentedImageBitmapTom == null) {
         return false;
       }
 
       augmentedImageDatabase = new AugmentedImageDatabase(session);
-      augmentedImageDatabase.addImage(DEFAULT_IMAGE_NAME, augmentedImageBitmap);
+      augmentedImageDatabase.addImage(DEFAULT_IMAGE_NAME, augmentedImageBitmapTom);
+
+
+
+
+
       // If the physical size of the image is known, you can instead use:
       //     augmentedImageDatabase.addImage("image_name", augmentedImageBitmap, widthInMeters);
       // This will improve the initial detection speed. ARCore will still actively estimate the
@@ -149,8 +157,8 @@ public class AugmentedImageFragment extends ArFragment {
     return true;
   }
 
-  private Bitmap loadAugmentedImageBitmap(AssetManager assetManager) {
-    try (InputStream is = assetManager.open(DEFAULT_IMAGE_NAME)) {
+  private Bitmap loadAugmentedImageBitmap(AssetManager assetManager, String imageName) {
+    try (InputStream is = assetManager.open(imageName)) {
       return BitmapFactory.decodeStream(is);
     } catch (IOException e) {
       Log.e(TAG, "IO exception loading augmented image bitmap.", e);

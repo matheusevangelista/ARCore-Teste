@@ -63,3 +63,8 @@ sceneform.asset('sampledata/Dragon_fbx.fbx',
         'sampledata/Dragon_fbx.sfa',
         'src/main/assets/Dragon_fbx',
         ['sampledata/Dragon_Baked_Actions_fbx_6.1_ASCII.fbx', 'sampledata/Dragon_Baked_Actions_fbx_7.4_binary.fbx'])
+
+sceneform.asset('sampledata/19-world/earth.obj',
+        'default',
+        'sampledata/19-world/earth.sfa',
+        'src/main/assets/earth')

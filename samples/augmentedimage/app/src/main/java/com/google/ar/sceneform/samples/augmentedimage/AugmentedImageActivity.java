@@ -41,7 +41,7 @@ public class AugmentedImageActivity extends AppCompatActivity {
 
   // Augmented image and its associated center pose anchor, keyed by the augmented image in
   // the database.
-  private final Map<AugmentedImage, AugmentedImageNodeBackup> augmentedImageMap = new HashMap<>();
+  private final Map<AugmentedImage, AugmentedImageNode> augmentedImageMap = new HashMap<>();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +76,8 @@ public class AugmentedImageActivity extends AppCompatActivity {
       return;
     }
 
-    Collection<AugmentedImage> updatedAugmentedImages =
-        frame.getUpdatedTrackables(AugmentedImage.class);
+    Collection<AugmentedImage> updatedAugmentedImages = frame.getUpdatedTrackables(AugmentedImage.class);
+
     for (AugmentedImage augmentedImage : updatedAugmentedImages) {
       switch (augmentedImage.getTrackingState()) {
         case PAUSED:
@@ -88,13 +88,14 @@ public class AugmentedImageActivity extends AppCompatActivity {
           break;
 
         case TRACKING:
+
           // Have to switch to UI Thread to update View.
           fitToScanView.setVisibility(View.GONE);
 
           // Create a new anchor for newly found images.
           if (!augmentedImageMap.containsKey(augmentedImage)) {
 
-            AugmentedImageNode node = new AugmentedImageNode(this, "Dragon_fbx.sfb");
+            AugmentedImageNode node = new AugmentedImageNode(this, "earth.sfb");
 
 //            AugmentedImageNodeBackup node = new AugmentedImageNodeBackup(this);
 
@@ -102,7 +103,7 @@ public class AugmentedImageActivity extends AppCompatActivity {
 
             node.setImage(augmentedImage);
 
-//            augmentedImageMap.put(augmentedImage, node);
+            augmentedImageMap.put(augmentedImage, node);
             arFragment.getArSceneView().getScene().addChild(node);
           }
           break;

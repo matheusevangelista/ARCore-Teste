@@ -17,7 +17,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class AugmentedImageNode extends AnchorNode {
 
-    private static final String TAG = "AugmentedImageNodeBackup";
+    private static final String TAG = "AugmentedImageNode";
 
     private AugmentedImage image;
     private static CompletableFuture<ModelRenderable> modelFuture;
@@ -53,7 +53,9 @@ public class AugmentedImageNode extends AnchorNode {
 
         Node node = new Node();
 
-        Pose pose = Pose.makeTranslation(0.0f, 0.0f, 0.25f);
+//        Pose pose = Pose.makeTranslation(0.0f, 0.0f, 0.25f);
+
+        Pose pose = Pose.makeTranslation(0.0f, 0.0f, 0.0f);
 
         node.setParent(this);
         node.setLocalPosition(new Vector3(pose.tx(), pose.ty(), pose.tz()));
