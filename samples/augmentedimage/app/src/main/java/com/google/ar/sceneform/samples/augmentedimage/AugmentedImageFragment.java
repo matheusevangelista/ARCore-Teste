@@ -139,10 +139,18 @@ public class AugmentedImageFragment extends ArFragment {
         return false;
       }
 
+      // index 2
+      Bitmap augmentedImageBitmap3 = loadAugmentedImageBitmap(assetManager, "heineken.jpg");
+      if (augmentedImageBitmap3 == null) {
+        return false;
+      }
+
 
       augmentedImageDatabase = new AugmentedImageDatabase(session);
       augmentedImageDatabase.addImage(DEFAULT_IMAGE_NAME, augmentedImageBitmapTom);
       augmentedImageDatabase.addImage("cartoon-mill-on-island-low-poly.jpg", augmentedImageBitmap2);
+      augmentedImageDatabase.addImage("heineken.jpg", augmentedImageBitmap3);
+
 
 
 
